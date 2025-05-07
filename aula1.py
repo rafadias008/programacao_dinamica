@@ -1,5 +1,6 @@
 import datetime 
 
+#fibonacci tradicional com recursividade
 def fibonacci(n):
     if n == 0 or n == 1:
         return n
@@ -8,6 +9,7 @@ def fibonacci(n):
 
 #print(fibonacci(40))
 
+#fibonacci de forma dinamica utilizando lista para armazenar os valores
 def fibonacci2(n):
    
     vetor = [0] * (n + 1)
@@ -19,4 +21,20 @@ def fibonacci2(n):
 
     return vetor[n]
 
-print(fibonacci2(45))
+#fibonacci implementando uma tabela hash
+def fibonacci3(n):
+
+    if n == 0 or n == 1:
+        return n
+
+    if n in vetorHash.keys():
+        return vetorHash[n]
+    vetorHash[n] = fibonacci3(n-1) + fibonacci3(n-2)
+    return vetorHash[n] 
+
+
+vetorHash = {}
+vetorHash[0] = 0
+vetorHash[1] = 1
+
+print(fibonacci3(100))
